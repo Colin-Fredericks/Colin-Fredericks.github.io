@@ -51,7 +51,7 @@ d3.json("data/author_data_oct13.json", function(error, graph) {
           .on("end", dragended));
 
   node.append("title")
-      .text(function(d) { return d.id; });
+      .text(function(d) { return d.name; });
 
   simulation
       .nodes(graph.nodes)
