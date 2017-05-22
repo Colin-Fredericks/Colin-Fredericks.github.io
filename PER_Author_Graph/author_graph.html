@@ -16,10 +16,11 @@
 <svg width="960" height="600"></svg>
 <script src="d3/d3.js"></script>
 <script>
+var w = window.innerWidth;
+var h = window.innerHeight;
 
 var min_zoom = 0.1;
 var max_zoom = 7;
-var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
@@ -92,6 +93,7 @@ d3.json("data/author_data_oct13.json", function(error, graph) {
   }
 });
 
+var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 
 function resize() {
     var width = window.innerWidth, height = window.innerHeight;
