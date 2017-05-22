@@ -60,6 +60,15 @@ d3.json("data/author_data_oct13.json", function(error, graph) {
   node.append("title")
       .text(function(d) { return d.name; });
 
+  node.append("text")
+      .text(function(d){ 
+        var names = d.name.split(" ");
+        var initials = "";
+        for(var j = 0; j < names.length; j++){
+            initials += names[i][0];
+        }
+        return initials});
+
   simulation
       .nodes(graph.nodes)
       .on("tick", ticked);
