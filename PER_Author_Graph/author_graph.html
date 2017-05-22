@@ -28,7 +28,7 @@ var simulation = d3.forceSimulation()
         .strength(1)
         .id(function(d) { return d.id; }))
     .force("charge", d3.forceManyBody())
-//    .force('collision', d3.forceCollide().radius(function(d) { return d.radius }))
+    .force('collision', d3.forceCollide().radius(function(d) { return d.radius }))
     .force("center", d3.forceCenter(width / 2, height / 2));
 
 function linkDistance(d) {
@@ -81,7 +81,7 @@ d3.json("data/author_data_oct13.json", function(error, graph) {
 
 });
 
-  
+/* I can't get zooming to work. :(
 svg.append("rect")
     .attr("width", width)
     .attr("height", height)
@@ -94,6 +94,7 @@ svg.append("rect")
 function zoomed() {
     g.attr("transform", d3.event.transform);
 }
+*/
 
 function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
