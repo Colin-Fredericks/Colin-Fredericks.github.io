@@ -26,7 +26,7 @@ var color = d3.scaleOrdinal(d3.schemeCategory20);
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink()
         .distance(linkDistance)
-        .strength(1)
+//        .strength(1)
         .id(function(d) { return d.id; }))
     .force("charge", d3.forceManyBody())
     .force("center", d3.forceCenter(width / 2, height / 2));
@@ -50,7 +50,7 @@ d3.json("data/author_data_oct13.json", function(error, graph) {
     .selectAll("circle")
     .data(graph.nodes)
     .enter().append("circle")
-      .attr("r", function(d) { return Math.sqrt(d.publications) * 5; })
+      .attr("r", function(d) { return Math.sqrt(d.publications) * 4; })
       .attr("fill", function(d) { return color(d.group); })
       .call(d3.drag()
           .on("start", dragstarted)
